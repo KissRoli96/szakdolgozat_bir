@@ -1,10 +1,8 @@
 <?php
-
+//app belepesi pontja
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
-
-var_dump('MÜKÖDIK KELCSI');
 
 define('LARAVEL_START', microtime(true));
 
