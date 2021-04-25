@@ -2,15 +2,35 @@
 
 @section('content')
     <h1>User Profile</h1>
-        Email: {{$user->email}}
-        <br>
-        name: {{ $user->name }}
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        {{$user->name}}
+                    </td>
+                </tr>
 
-    <form method="post" action="/user/delete/{{$user->id_user}}">
-        @csrf
-        <button type="submit">Törlés</button>
-    </form>
+                <tr>
+                    <td>
+                        email
+                    </td>
+                    <td>
+                        {{$user->email}}
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-    <hr>
-    <a href="/user/update/{{$user->id_user}}">Modositás</a>
+        <div class="col-12">
+            <a class="btn btn-info" href="/user/update/{{$user->id_user}}">Modositás</a>
+            <form method="post" action="/user/delete/{{$user->id_user}}">
+                @csrf
+                <button class="btn btn-danger" type="submit" onclick="return confirm('Tényleg törölni szeretné?')">Törlés</button>
+            </form>
+        </div>
+    </div>
 @endsection

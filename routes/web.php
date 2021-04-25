@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,12 @@ Route::get('/', function () {
 Route::get('/about', function () {
    return view('users.about');
 });
+
+Route::get('/signup', [SiteController::class, 'signup']);
+Route::post('/signup', [SiteController::class, 'signup']);
+
+Route::get('/login', [SiteController::class, 'login']);
+Route::post('/login', [SiteController::class, 'login']);
 
 Route::get('/user', [UserController::class,'index'] );
 Route::get('/user/insert', [UserController::class,'insert'] );

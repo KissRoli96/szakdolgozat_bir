@@ -62,7 +62,7 @@ class UserController extends Controller
             $user->fill($request->all());
 
             if ($user->save()) {
-                $request->session()->flash('status', 'A felhaszánlót sikeresen mentettem');
+                $request->session()->flash('success', 'A felhaszánlót sikeresen mentettem');
 
                 return redirect('/user/view/' . $user->id_user);
             }
@@ -90,7 +90,7 @@ class UserController extends Controller
             $user->fill(request()->all());
 
             if ($user->save()) {
-                request()->session()->flash('status', 'A felhaszánlót sikeresen mentettem');
+                request()->session()->flash('success', 'A felhaszánlót sikeresen mentettem');
 
                 return redirect("/user/view/{$id}");
             }
@@ -109,8 +109,12 @@ class UserController extends Controller
     {
         $user = $this->findById($id);
         if ($user->delete()) {
+            request()->session()->flash('success', 'A felhaszánlót sikeresen töröltem');
             return redirect('user');
         }
+        request()->session()->flash('error', 'Belső hiba történt');
+        return back();
+
     }
 
     /**
