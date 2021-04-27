@@ -19,7 +19,7 @@ class UserController extends Controller
      * 1. Authorization //Jogosultság ellenőrzése. Vendég végre hajthat-e törlést pl.
      * 2. Show data //kiratod a formot
      * 3. Collect user input //form submit
-     * 4. Validate user input (MINDIG GECI)
+     * 4. Validate user input (MINDIG KELL)
      * 5. Business logic (delete, update, összegyűjteni bármit és azzal dolgozni, akármi.)
      * 6. Check for results. //mivel tért vissza a save() vagy a delete() vagy akármi().
      * 7. Log results //Leírni a müvelet eredményét. Ha hiba van, el akarjuk tárolni egy fáljba/ vlahol, hogy mi is tudjunk róla hogy hiba van a rendszerben
@@ -62,7 +62,7 @@ class UserController extends Controller
             $user->fill($request->all());
 
             if ($user->save()) {
-                $request->session()->flash('success', 'A felhaszánlót sikeresen mentettem');
+                $request->session()->flash('success', 'A felhasználót sikeresen mentettem');
 
                 return redirect('/user/view/' . $user->id_user);
             }

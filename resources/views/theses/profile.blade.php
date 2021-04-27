@@ -7,12 +7,13 @@
             <table class="table">
                 <thead class="thread-dark">
                     <tr>
-                        <th scope="col">Tanár</th>
+                        <th scope="col">Tanár/Konzulens</th>
                         <th scope="col">Tanszék</th>
                         <th scope="col">Szakdolgozat Neve</th>
                         <th scope="col">Szakdolgozat Neve ENG</th>
                         <th scope="col">Feladat leírás</th>
-                        <th scope="col">Konzulens</th>
+                        <th scope="col">Supervisor</th>
+                        <th scope="col">Létszám</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,9 +24,18 @@
                         <td>{{$thesis->task_name_en}}</td>
                         <td>{{$thesis->task_description}}</td>
                         <td>{{$thesis->supervisor}}</td>
+                        <td>{{$thesis->headcount}}</td>
                     </tr>
                 </tbody>
             </table>
+
+            <div class="col-12">
+                <a class="btn btn-info" href="/theses/update/{{$thesis->id}}">Módosítás</a>
+                <form method="post" action="/theses/delete/{{$thesis->id}}">
+                    @csrf
+                    <button class="btn btn-danger" type="submit" onclick="return confirm('Tényleg törölni szeretné?')">Törlés</button>
+                </form>
+            </div>
 
             <div>
                 <a class="btn btn-primary" href="/theses/" role="button">Vissza</a>

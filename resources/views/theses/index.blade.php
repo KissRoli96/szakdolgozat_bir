@@ -8,7 +8,7 @@
                 Szakdolgozatok
             </h1>
 
-            <a class="btn btn-info" href="/user/insert">Új szakdolgozat felvétele</a>
+            <a class="btn btn-info" href="/theses/insert">Új szakdolgozat felvétele</a>
             <hr>
             <table class="table table-striped">
                 <thead class="thead-dark">

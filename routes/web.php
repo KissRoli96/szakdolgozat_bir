@@ -30,6 +30,7 @@ Route::post('/signup', [SiteController::class, 'signup']);
 Route::get('/login', [SiteController::class, 'login']);
 Route::post('/login', [SiteController::class, 'login']);
 
+// userek CRUD
 Route::get('/user', [UserController::class,'index'] );
 Route::get('/user/insert', [UserController::class,'insert'] );
 Route::post('/user/insert', [UserController::class,'insert'] );
@@ -38,7 +39,11 @@ Route::get('/user/update/{id}', [UserController::class,'update']);
 Route::post('/user/update/{id}', [UserController::class,'update']);
 Route::get('/user/view/{id}', [UserController::class,'view'] );
 
-
+// Szakdolgozat CRUD
 Route::get('/theses', [ThesesController::class, 'index']);
 Route::get('/theses/view/{id}', [ThesesController::class, 'view']);
-
+Route::get('/theses/insert', [ThesesController::class, 'insert']);
+Route::post('/theses/insert', [ThesesController::class, 'insert']);
+Route::post('/theses/delete/{id}', [ThesesController::class, 'delete']);
+Route::get('/theses/update/{id}',[ThesesController::class,'update']);
+Route::post('/theses/update/{id}',[ThesesController::class,'update']);
