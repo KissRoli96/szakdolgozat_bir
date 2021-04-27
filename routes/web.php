@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ThesesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,8 @@ Route::post('/user/delete/{id}', [UserController::class,'delete']);
 Route::get('/user/update/{id}', [UserController::class,'update']);
 Route::post('/user/update/{id}', [UserController::class,'update']);
 Route::get('/user/view/{id}', [UserController::class,'view'] );
+
+
+Route::get('/theses', [ThesesController::class, 'index']);
+Route::get('/theses/view/{id}', [ThesesController::class, 'view']);
 

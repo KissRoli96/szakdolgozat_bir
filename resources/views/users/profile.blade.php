@@ -5,22 +5,17 @@
     <div class="row">
         <div class="col-12">
             <table class="table table-striped">
+                <thead class="thead-dark">
                 <tr>
-                    <td>
-                        Name
-                    </td>
-                    <td>
-                        {{$user->name}}
-                    </td>
+                    <th scope="col">Felhasználó</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Regisztráció dátuma</th>
                 </tr>
-
+                </thead>
                 <tr>
-                    <td>
-                        email
-                    </td>
-                    <td>
-                        {{$user->email}}
-                    </td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->registration_date}}</td>
                 </tr>
             </table>
         </div>
@@ -31,6 +26,10 @@
                 @csrf
                 <button class="btn btn-danger" type="submit" onclick="return confirm('Tényleg törölni szeretné?')">Törlés</button>
             </form>
+        </div>
+
+        <div>
+            <a class="btn btn-primary" href="/user/" role="button">Vissza</a>
         </div>
     </div>
 @endsection

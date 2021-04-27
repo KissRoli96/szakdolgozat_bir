@@ -122,6 +122,7 @@ class UserController extends Controller
      * @param $id
      * @return mixed
      */
+
     private function findById($id)
     {
         $user = User::where('id_user', $id)->first();
@@ -131,5 +132,8 @@ class UserController extends Controller
         }
         return $user;
     }
+
+
+
 
 }

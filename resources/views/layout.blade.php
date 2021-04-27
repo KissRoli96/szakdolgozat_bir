@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>App Name - @yield('title')</title>
+    <title>Bir App  @yield('title')</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,7 +17,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Roli szakdoga</a>
+    <a class="navbar-brand" href="/">BIR Laravel</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,11 +30,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/user">Felhasználók</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/theses">Szakdolgozatok</a>
+            </li>
 
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="btn btn-success" href="/login">Belépés</a>
+                    <a class="btn btn-success" href="/login">Belépés</a>
             </li>
             <li class="nav-item">
                 <a class="btn btn-success" href="/signup">Regisztráció</a>

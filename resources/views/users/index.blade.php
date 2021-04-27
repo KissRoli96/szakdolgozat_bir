@@ -12,13 +12,19 @@
             <hr>
 
             <table class="table table-striped">
+                <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Felhasználó</th>
+                            <th scope="col"></th>
+                        </tr>
+                </thead>
                 @foreach($users as $user)
                     <tr>
                         <td>
                             {{$user->name}}
                         </td>
                         <td>
-                            <a href="/user/view/{{$user->id_user}}">Profil</a>
+                            <a class="btn btn-primary" href="/user/view/{{$user->id_user}}" role="button">Profil</a>
                         </td>
                     </tr>
                 @endforeach
