@@ -33,6 +33,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/theses">Szakdolgozatok</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/theses">Kurzusok</a>
+            </li>
 
         </ul>
         <ul class="navbar-nav ml-auto">

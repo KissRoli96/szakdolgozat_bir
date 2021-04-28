@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <h1>
-                Userek
+                Felhasználók
             </h1>
 
             <a class="btn btn-info" href="/user/insert">Új felhasználó létrehozása</a>
