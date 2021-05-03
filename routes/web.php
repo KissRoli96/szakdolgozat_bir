@@ -27,9 +27,9 @@ Route::get('/about', function () {
 
 Route::get('/signup', [SiteController::class, 'signup']);
 Route::post('/signup', [SiteController::class, 'signup']);
-
-Route::get('/login', [SiteController::class, 'login']);
-Route::post('/login', [SiteController::class, 'login']);
+//
+//Route::get('/login', [SiteController::class, 'login']);
+//Route::post('/login', [SiteController::class, 'login']);
 
 // userek CRUD
 Route::get('/user', [UserController::class,'index'] );

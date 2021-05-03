@@ -7,8 +7,9 @@
             <h1>
                 Szakdolgozatok
             </h1>
-
+            @auth
             <a class="btn btn-info" href="/theses/insert">Új szakdolgozat felvétele</a>
+            @endauth
             <hr>
             <table class="table table-striped">
                 <thead class="thead-dark">

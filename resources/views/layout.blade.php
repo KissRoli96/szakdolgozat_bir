@@ -27,24 +27,35 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
+            @auth
             <li class="nav-item">
                 <a class="nav-link" href="/user">Felhasználók</a>
             </li>
+            @endauth
             <li class="nav-item">
                 <a class="nav-link" href="/theses">Szakdolgozatok</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/courses">Kurzusok</a>
-            </li>
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="/courses">Kurzusok</a>
+                </li>
+            @endauth
 
         </ul>
+
         <ul class="navbar-nav ml-auto">
+            @guest
             <li class="nav-item">
-                    <a class="btn btn-success" href="/login">Belépés</a>
+                <a class="btn btn-success" href="/login">Belépés</a>
             </li>
-            <li class="nav-item">
-                <a class="btn btn-success" href="/signup">Regisztráció</a>
-            </li>
+            @endguest
+
+            @auth
+                <li class="nav-item">
+                    <a class="btn btn-success" href="/logout">Kilépés</a>
+                </li>
+            @endauth
+
         </ul>
     </div>
 </nav>

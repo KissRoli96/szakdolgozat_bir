@@ -32,6 +32,15 @@ class UserController extends Controller
 
     public function index()
     {
+//        if (Auth()->check()) {
+//
+//            //csinaljon valamit csak a loginoltaknak
+//        }
+//
+//        if (!Auth()->check()) {
+//            //csakj vendégek láthatják
+//        }
+        //nincs ellenőriozve auth, tehát mindenki mindent
         $users = User::all();
 
         return view('users.index',['users' => $users]);
@@ -125,6 +134,7 @@ class UserController extends Controller
 
     private function findById($id)
     {
+        $user = User::where('id_user', $id)->first();
         $user = User::where('id_user', $id)->first();
 
         if (empty($user)) {
