@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ThesesController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,11 @@ Route::post('/theses/insert', [ThesesController::class, 'insert']);
 Route::post('/theses/delete/{id}', [ThesesController::class, 'delete']);
 Route::get('/theses/update/{id}',[ThesesController::class,'update']);
 Route::post('/theses/update/{id}',[ThesesController::class,'update']);
+
+
+// Kurzusok CRUD
+
+Route::get('/courses', [CourseController::class, 'index']);
+Route::get('/courses/view/{id}', [CourseController::class, 'view']);
+Route::get('/courses/insert',[CourseController::class, 'insert']);
+Route::post('/courses/insert',[CourseController::class, 'insert']);

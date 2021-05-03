@@ -50,7 +50,4 @@ $status = $kernel->handle(
 
 $kernel->terminate($input, $status);
 
-
-var_dump('HELLOOOO');
-
 exit($status);

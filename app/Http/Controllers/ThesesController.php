@@ -55,14 +55,12 @@ class ThesesController extends Controller
 
             $thesis->fill($request->all());
 
-            if($thesis->save()) {
+            if ($thesis->save()) {
                 $request->session()->flash('success', 'A szakdolgozatot sikeresen mentettem');
-                var_dump('lefut');
                 return redirect('/theses/view/' . $thesis->id);
             }
                 $request->session()->flash('error', 'Belső hiba történt');
         }
-
 
         return view('theses.create', ['thesis' => $thesis]);
     }
