@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Facade\FlareClient\Http\Exceptions\NotFound;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

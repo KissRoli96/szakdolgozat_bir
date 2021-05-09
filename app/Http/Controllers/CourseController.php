@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Departments;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -30,6 +31,10 @@ class CourseController extends Controller
     {
         $course = new Course();
 
+
+        $departments = Departments::all();
+
+
         if ($request->post() && $request->has('_token')) {
             $request->validate([
                 'neptun_id' => 'required',
@@ -54,7 +59,7 @@ class CourseController extends Controller
             $request->session()->flash('error', 'Belső hiba történt');
         }
 
-        return view('courses.create', ['course' => $course]);
+        return view('courses.create', ['course' => $course, 'departments' => $departments]);
 
     }
 

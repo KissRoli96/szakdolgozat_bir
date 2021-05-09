@@ -38,10 +38,14 @@
 
     <div class="form-group">
         <label for="department">Tanszék:</label>
-        <input type="text" name="department" id="department" value="{{$course->department}}">
+        <select name="department" id="department">
+            @foreach($departments as $department)
+                <option value="{{$department->unique_id}}">{{$department->department}}</option>
+            @endforeach
+
+        </select>
     </div>
 
-{{--    <br>--}}
 
     <div>
         <button type="submit" class="btn btn-success">Létrehozás</button>
