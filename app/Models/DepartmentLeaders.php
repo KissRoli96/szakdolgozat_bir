@@ -16,5 +16,5 @@ class DepartmentLeaders extends Model
                 'leader',
                 'active',
     ];
- 
+
 }
