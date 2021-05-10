@@ -17,4 +17,7 @@ class Teachers extends Model
                 'active',
     ];
 
+
+    public $timestamps = false;
+
 }

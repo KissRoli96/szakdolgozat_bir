@@ -17,4 +17,7 @@ class DepartmentLeaders extends Model
                 'active',
     ];
 
+
+    public $timestamps = false;
+
 }

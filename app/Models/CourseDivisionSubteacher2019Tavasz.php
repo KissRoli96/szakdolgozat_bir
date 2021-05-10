@@ -18,4 +18,7 @@ class CourseDivisionSubteacher2019Tavasz extends Model
         'active',
     ];
 
+
+    public $timestamps = false;
+
 }

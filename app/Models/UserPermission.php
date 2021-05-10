@@ -16,4 +16,7 @@ class UserPermission extends Model
         'permission',
         'valid',
     ];
+
+
+    public $timestamps = false;
 }

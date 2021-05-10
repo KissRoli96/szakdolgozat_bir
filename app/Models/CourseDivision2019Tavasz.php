@@ -27,4 +27,7 @@ class CourseDivision2019Tavasz extends Model
         'dephelper',
     ];
 
+
+    public $timestamps = false;
+
 }

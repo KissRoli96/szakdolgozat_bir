@@ -23,4 +23,7 @@ class PersonalClaim extends Model
         'max_lessons',
         'lessons_comment',
     ];
+
+
+    public $timestamps = false;
 }
