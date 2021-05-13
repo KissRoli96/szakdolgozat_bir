@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ThesesController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ClassroomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,8 @@ Route::get('/courses', [CourseController::class, 'index']);
 Route::get('/courses/view/{id}', [CourseController::class, 'view']);
 Route::get('/courses/insert',[CourseController::class, 'insert']);
 Route::post('/courses/insert',[CourseController::class, 'insert']);
+
+
+// Osztalytermek
+Route::get('/classrooms', [ClassroomController::class, 'index']);
+Route::get('/classrooms/view/{name}', [ClassroomController::class, 'view']);

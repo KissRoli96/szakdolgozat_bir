@@ -41,6 +41,10 @@
                 </li>
             @endauth
 
+                <li class="nav-item">
+                    <a class="nav-link" href="/classrooms">Osztálytermek</a>
+                </li>
+
         </ul>
 
         <ul class="navbar-nav ml-auto">
