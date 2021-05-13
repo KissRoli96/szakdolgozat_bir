@@ -68,3 +68,5 @@ Route::get('/classrooms/view/{id}', [ClassroomController::class, 'view']);
 
 // Demonstrátorok
 Route::get('/demonstrators', [DemonstratorController::class, 'index']);
+Route::get('/demonstrators/insert', [DemonstratorController::class, 'insert']);
+Route::post('/demonstrators/insert', [DemonstratorController::class, 'insert']);

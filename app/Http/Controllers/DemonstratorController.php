@@ -28,7 +28,43 @@ class DemonstratorController extends Controller
 
     public function insert(Request $request)
     {
-        var_dump('lefut');
+        $demonstrator = new Demonstrator();
+
+        $specs = Specialist::all();
+        $specializations = Specialization::all();
+        $courses = Course::all();
+
+        if ($request->post() && $request->has('_token')) {
+            $request->validate([
+                'user' => 'required',
+                'specs' => 'required',
+                'specialization' => 'required',
+                'semester' => 'required',
+                'min' => 'required',
+                'max' => 'required',
+                'corr' => 'required',
+            ]);
+
+
+            $demonstrator->fill($request->all());
+
+            if ($demonstrator->save()) {
+
+                $request->session()->flash('success', 'A demonstártort sikeresen mentettem');
+
+                return redirect('/demonstrators');
+            }
+                $request->session()->flash('error', 'Belső hiba történt.');
+        }
+
+        return view('demonstrators.create',
+            [
+            'demonstrator' => $demonstrator,
+            'specializations' => $specializations,
+            'courses' => $courses,
+            'specs' => $specs
+            ],
+        );
     }
 
 

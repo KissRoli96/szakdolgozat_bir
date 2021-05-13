@@ -136,7 +136,6 @@ class UserController extends Controller
     private function findById($id)
     {
         $user = User::where('id_user', $id)->first();
-        $user = User::where('id_user', $id)->first();
 
         if (empty($user)) {
             throw new NotFoundHttpException("A felhaszáló nem található");
