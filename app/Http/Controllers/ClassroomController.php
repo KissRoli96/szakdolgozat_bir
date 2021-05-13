@@ -20,25 +20,46 @@ class ClassroomController extends Controller
 
     }
 
-
-    public function view($name)
+    public function search()
     {
-        $classroom = $this->findbySearch($name);
+        $name = request()->get('name');
+        if (!empty($name)) {
+            $result = $this->findbyName($name);
 
-        return view('classrooms.index', ['classroom' => $classroom]);
+            return view("/classrooms/search", [
+                'name' => $name,
+                'classrooms' => $result
+            ]);
+        }
     }
 
-    public function findbySearch($name)
+    public function view($id)
     {
+        $classroom = $this->findbyId($id);
 
-         $classroom = Classrooms::query()
-         ->where('full_name', 'LIKE', $name);
+        return view('classrooms.view', ['classroom' => $classroom]);
+    }
+
+    protected function findById($id) {
+        $classroom = Classrooms::where('classroom_id', $id)->first();
 
         if (empty($classroom)) {
             throw new NotFoundHttpException("A tanterem nem található");
         }
-
         return $classroom;
+    }
+
+    protected function findbyName($name)
+    {
+         $classrooms = Classrooms::query()
+         ->where('full_name', 'LIKE', "%$name%")
+         ->get();
+
+        if (empty($classrooms)) {
+            throw new NotFoundHttpException("A tanterem nem található");
+        }
+
+        return $classrooms;
 
     }
 

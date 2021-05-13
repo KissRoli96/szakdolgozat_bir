@@ -6,6 +6,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ThesesController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\DemonstratorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,4 +62,9 @@ Route::post('/courses/insert',[CourseController::class, 'insert']);
 
 // Osztalytermek
 Route::get('/classrooms', [ClassroomController::class, 'index']);
-Route::get('/classrooms/view/{name}', [ClassroomController::class, 'view']);
+Route::get('/classrooms/search', [ClassroomController::class, 'search']);
+Route::get('/classrooms/view/{id}', [ClassroomController::class, 'view']);
+
+
+// Demonstrátorok
+Route::get('/demonstrators', [DemonstratorController::class, 'index']);

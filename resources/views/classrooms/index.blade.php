@@ -6,6 +6,7 @@
     </div>
 
     <div>
+        @include('classrooms.form')
 
     </div>
 

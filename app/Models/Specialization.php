@@ -16,4 +16,6 @@ class Specialization extends Model
       'name',
       'tag',
     ];
+
+    public $timestamps = false;
 }

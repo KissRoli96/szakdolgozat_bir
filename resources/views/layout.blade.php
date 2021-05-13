@@ -45,6 +45,10 @@
                     <a class="nav-link" href="/classrooms">Osztálytermek</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="/demonstrators">Demonstrátor jelentkezés</a>
+                 </li>
+
         </ul>
 
         <ul class="navbar-nav ml-auto">

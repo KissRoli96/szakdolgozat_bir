@@ -20,4 +20,6 @@ class Specialist extends Model
       'code',
     ];
 
+    public $timestamps = false;
+
 }
