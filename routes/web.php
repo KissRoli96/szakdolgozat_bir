@@ -50,6 +50,7 @@ Route::post('/theses/insert', [ThesesController::class, 'insert']);
 Route::post('/theses/delete/{id}', [ThesesController::class, 'delete']);
 Route::get('/theses/update/{id}',[ThesesController::class,'update']);
 Route::post('/theses/update/{id}',[ThesesController::class,'update']);
+Route::get('/theses/search', [ThesesController::class,'search']);
 
 
 // Kurzusok CRUD
@@ -70,3 +71,4 @@ Route::get('/classrooms/view/{id}', [ClassroomController::class, 'view']);
 Route::get('/demonstrators', [DemonstratorController::class, 'index']);
 Route::get('/demonstrators/insert', [DemonstratorController::class, 'insert']);
 Route::post('/demonstrators/insert', [DemonstratorController::class, 'insert']);
+Route::get('/demonstrators/view/{id}', [DemonstratorController::class,'view'] );

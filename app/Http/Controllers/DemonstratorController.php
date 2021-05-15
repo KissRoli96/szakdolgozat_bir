@@ -15,15 +15,26 @@ class DemonstratorController extends Controller
 
     public function index()
     {
+        $specs = Specialist::all();
+        $specializations = Specialization::all();
+        $courses = Course::all();
         $demonstrators = Demonstrator::all();
 
-        return view('demonstrators.index', ['demonstrators' => $demonstrators]);
+        return view('demonstrators.index',
+            [
+            'demonstrators' => $demonstrators,
+            'specializations' => $specializations,
+            'courses' => $courses,
+            'specs' => $specs]);
 
     }
 
-    public function view()
+    public function view($id)
     {
 
+        $demonstrator = $this->findByID($id);
+
+        return view('demonstrators.profile', ['demonstrator' => $demonstrator]);
     }
 
     public function insert(Request $request)
@@ -65,6 +76,17 @@ class DemonstratorController extends Controller
             'specs' => $specs
             ],
         );
+    }
+
+    private function findByID($id)
+    {
+        $demonstrator = Demonstrator::where('id', $id)->first();
+
+        if (empty($demonstrator)) {
+            throw new NotFoundHttpException('A felhasználó nem található!');
+        }
+
+        return $demonstrator;
     }
 
 

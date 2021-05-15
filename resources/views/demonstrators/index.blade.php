@@ -7,7 +7,9 @@
             <h1>
                 Demonstrátorok
             </h1>
+            <div>
                 <a class="btn btn-info" href="/demonstrators/insert">Demonstrátor jelentkezés</a>
+            </div>
 
             <hr>
             <table class="table table-striped">

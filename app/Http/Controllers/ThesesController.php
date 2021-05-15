@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Theses;
-use Facade\FlareClient\Http\Exceptions\NotFound;
+use App\Models\Departments;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -13,8 +14,17 @@ class ThesesController extends Controller
     public function index()
     {
         $theses = Theses::all();
+        $departments = Departments::all();
 
-        return view('theses.index',['theses' => $theses]);
+        $teachers = DB::select(DB::raw('SELECT DISTINCT(t.user_mail), u.`name` FROM teachers as t
+        LEFT JOIN users as u ON t.user_mail = u.email;'));
+
+
+        return view('theses.index',[
+            'theses' => $theses,
+            'departments' => $departments,
+            'teachers' => $teachers
+        ]);
     }
 
 
@@ -103,6 +113,37 @@ class ThesesController extends Controller
             throw new NotFoundHttpException("A szakdolgozat nem található");
         }
         return $thesis;
+    }
+
+    public function search()
+    {
+        $name = request()->get('name');
+        $user = request()->get('user');
+        $department = request()->get('department');
+
+
+        if (!empty($name)) {
+            $result = $this->findByName($name);
+
+
+            return view("/theses/search",[
+                'name' => $name,
+                'result' => $result
+            ]);
+        }
+    }
+
+    private function findByName($name)
+    {
+        $theses = Theses::query()
+            ->where('task_name', 'LIKE', "%$name%")
+            ->get();
+
+        if (empty($theses)) {
+            throw new NotFoundHttpException("A szakdolgozat nem található!");
+        }
+
+        return $theses;
     }
 
 }
