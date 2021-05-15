@@ -18,8 +18,9 @@
                 <div class="form-group">
                     <label for="department">Tanszék</label>
                     <select class="form-control" id="department" name="department">
+                        <option value="">Kérjük válasszon tanszéket!</option>
                         @foreach($departments as $department)
-                        <option value="{{$department->unique_id}}">{{$department->department}}</option>
+                            <option value="{{$department->unique_id}}">{{$department->department}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -27,8 +28,9 @@
                 <div class="form-group">
                     <label for="user">Tanár</label>
                     <select class="form-control" id="user" name="user">
+                        <option value="" >Kérjük válasszon Oktatót!</option>
                         @foreach($teachers as $teacher)
-                        <option value="{{$teacher->user_mail}}">{{$teacher->name}}</option>
+                            <option value="{{$teacher->user_mail}}">{{$teacher->name}}</option>
                         @endforeach
                     </select>
                 </div>

@@ -12,8 +12,8 @@
                       <th scope="col">Részletek</th>
                   </tr>
               </thead>
-                  <tbody>
-                  <tr>
+                <tbody>
+                    <tr>
                       <td>
                           {{$classroom->full_name}}
                       </td>
@@ -23,9 +23,8 @@
                       <td>
                           <div class="col"><a class="btn btn-info" href="/classrooms/view/{{$classroom->classroom_id}}">Részletek a teremről</a></div>
                       </td>
-
-                  </tr>
-                  </tbody>
+                    </tr>
+                </tbody>
       @empty
           <h3>Nincs találat </h3>
       @endforelse

@@ -121,22 +121,27 @@ class ThesesController extends Controller
         $user = request()->get('user');
         $department = request()->get('department');
 
+        if(empty($name) AND empty($user) AND empty($department)) {
+            request()->session()->flash('error', 'Nem töltötted ki a keresési mezőket!');
+            return redirect("/theses/");
 
-        if (!empty($name)) {
-            $result = $this->findByName($name);
-
-
-            return view("/theses/search",[
-                'name' => $name,
-                'result' => $result
-            ]);
         }
+
+        $result = $this->find($name, $user, $department);
+
+        return view("/theses/search",[
+            'name' => $name,
+            'result' => $result
+        ]);
+
     }
 
-    private function findByName($name)
+    private function find($name,$user,$department)
     {
         $theses = Theses::query()
             ->where('task_name', 'LIKE', "%$name%")
+            ->where('user', 'LIKE', "%$user%")
+            ->where('department', 'LIKE', "%$department%")
             ->get();
 
         if (empty($theses)) {
