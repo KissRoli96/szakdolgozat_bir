@@ -28,26 +28,35 @@
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             @auth
-            <li class="nav-item">
-                <a class="nav-link" href="/user">Felhasználók</a>
-            </li>
+                @if(!Auth::hasRole('student'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user">Felhasználók</a>
+                    </li>
+                @endif
             @endauth
-            <li class="nav-item">
-                <a class="nav-link" href="/theses">Szakdolgozatok</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/theses">Szakdolgozatok</a>
+                </li>
             @auth
                 <li class="nav-item">
                     <a class="nav-link" href="/courses">Kurzusok</a>
                 </li>
             @endauth
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/classrooms">Osztálytermek</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/classrooms">Osztálytermek</a>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="/demonstrators">Demonstrátor jelentkezés</a>
+             </li>
+            @auth
+                @if(Auth::hasRole('department_leader'))
                 <li class="nav-item">
-                    <a class="nav-link" href="/demonstrators">Demonstrátor jelentkezés</a>
-                 </li>
+                    <a class="nav-link" href="/judgment">Szakdolgozat Bírálás</a>
+                </li>
+                @endif
+            @endauth
 
         </ul>
 
@@ -60,7 +69,7 @@
 
             @auth
                 <li class="nav-item">
-                    <a class="btn btn-success" href="/logout">Kilépés</a>
+                    <a class="btn btn-success" href="/logout">Kilépés ({{Auth::user()->name}})</a>
                 </li>
             @endauth
 

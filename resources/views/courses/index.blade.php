@@ -6,9 +6,9 @@
             <h1>
                 Kurzusok
             </h1>
-
+            @if(!Auth::hasRole('student'))
             <a class="btn btn-info" href="/courses/insert">Új kurzus felvétele</a>
-
+            @endif
             <hr>
 
             <table class="table table-striped">

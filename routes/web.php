@@ -72,3 +72,7 @@ Route::get('/demonstrators', [DemonstratorController::class, 'index']);
 Route::get('/demonstrators/insert', [DemonstratorController::class, 'insert']);
 Route::post('/demonstrators/insert', [DemonstratorController::class, 'insert']);
 Route::get('/demonstrators/view/{id}', [DemonstratorController::class,'view'] );
+
+
+// Bírálat
+Route::get('/judgment', []);

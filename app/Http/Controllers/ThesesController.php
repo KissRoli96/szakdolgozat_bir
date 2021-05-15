@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Theses;
 use App\Models\Departments;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\Client\HttpClientException;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ThesesController extends Controller
@@ -39,6 +43,10 @@ class ThesesController extends Controller
 
     public function delete($id)
     {
+        if (Auth::hasRole('student')) {
+            throw new AuthorizationException("kicsi a pöcsöd");
+        }
+
         $thesis = $this->findById($id);
         if ($thesis->delete()) {
             request()->session()->flash('success','A szakdolgozat sikeresen törölve');
@@ -51,6 +59,10 @@ class ThesesController extends Controller
 
     public function insert(Request $request)
     {
+        if (Auth::hasRole('student')) {
+            throw new AuthorizationException('Diák vagy ne tedd ezt rossz úton jársz!');
+        }
+
         $thesis = new Theses();
 
         if ($request->post() && $request->has('_token')) {

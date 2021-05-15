@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Departments;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CourseController extends Controller
@@ -29,6 +31,9 @@ class CourseController extends Controller
 
     public function insert(Request $request)
     {
+        if (Auth::hasRole('student')) {
+            throw new AuthorizationException("kicsi a pöcsöd");
+        }
         $course = new Course();
 
 

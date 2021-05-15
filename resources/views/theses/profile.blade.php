@@ -29,6 +29,7 @@
                 </tbody>
             </table>
 
+            @if(!Auth::hasRole('student'))
             <div class="col-12">
                 <a class="btn btn-info" href="/theses/update/{{$thesis->id}}">Módosítás</a>
                 <form method="post" action="/theses/delete/{{$thesis->id}}">
@@ -36,7 +37,7 @@
                     <button class="btn btn-danger" type="submit" onclick="return confirm('Tényleg törölni szeretné?')">Törlés</button>
                 </form>
             </div>
-
+            @endif
             <div>
                 <a class="btn btn-primary" href="/theses/" role="button">Vissza</a>
             </div>
