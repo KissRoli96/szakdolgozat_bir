@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <table class="table">
-                <thead class="thread-dark">
+                <thead class="thead-dark">
                     <tr>
                         <th scope="col">Tanár/Konzulens</th>
                         <th scope="col">Tanszék</th>
