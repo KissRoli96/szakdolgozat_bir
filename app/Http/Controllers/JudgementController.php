@@ -38,6 +38,23 @@ class JudgmentController extends Controller
 
     }
 
+    public function archive($id)
+    {
+        $thesis = $this->findById($id);
+
+        $thesis->status = Theses::STATUS_ARCHIVED;
+
+        if ($thesis->save()) {
+            request()->session()->flash('success', 'A szakdolgozatot sikeresen modósitottam');
+            return redirect('/judgment/view/' . $id);
+        }
+
+        request()->session()->flash('error', 'Belső hiba történt');
+
+        return back();
+
+    }
+
     public function deny($id)
     {
 
