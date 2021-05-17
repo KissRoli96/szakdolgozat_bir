@@ -4,8 +4,8 @@
     <h2>Jelentkezett Demonstártor  Adatai</h2>
     <div class="row">
         <div class="col-12">
-            <table class="table">
-                <thead class="thread-dark">
+            <table class="table dark">
+                <thead class="thead-dark">
                 <tr>
                     <th scope="col">Név</th>
                     <th scope="col">Szak</th>
@@ -13,14 +13,20 @@
                     <th scope="col">Kurzusok</th>
                     <th scope="col">Évfolyam</th>
                     <th scope="col">Aktuális félév</th>
-                    <th scope="col">Létszám</th>
+                    <th scope="col">Minimális Óraszám</th>
+                    <th scope="col">Maximális Óraszám</th>
+                    <th scope="col">Levelezős Óra</th>
+                    <th scope="col">Megyjegyzés</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    {{$demonstrator}}
-{{--                    <td>{{$thesis->user}}</td>--}}
-{{--                    <td>{{$thesis->department}}</td>--}}
+
+                    <td>{{$demonstrator->user}}</td>
+                    @foreach($specs as $spec)
+                    <td>{{$spec->name}}</td>
+                    @endforeach
 {{--                    <td>{{$thesis->task_name}}</td>--}}
 {{--                    <td>{{$thesis->task_name_en}}</td>--}}
 {{--                    <td>{{$thesis->task_description}}</td>--}}

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
-class JudgmentController extends Controller
+class JudgementController extends Controller
 {
     public function callAction($method, $parameters)
     {
@@ -29,7 +29,7 @@ class JudgmentController extends Controller
 
         if ($thesis->save()) {
             request()->session()->flash('success', 'A szakdolgozatot sikeresen modósitottam');
-            return redirect('/judgment/view/' . $id);
+            return redirect('/judgement/view/' . $id);
         }
 
         request()->session()->flash('error', 'Belső hiba történt');
@@ -46,7 +46,7 @@ class JudgmentController extends Controller
 
         if ($thesis->save()) {
             request()->session()->flash('success', 'A szakdolgozatot sikeresen modósitottam');
-            return redirect('/judgment/view/' . $id);
+            return redirect('/judgement/view/' . $id);
         }
 
         request()->session()->flash('error', 'Belső hiba történt');
@@ -64,7 +64,7 @@ class JudgmentController extends Controller
 
         if ($thesis->save()) {
             request()->session()->flash('success', 'A szakdolgozatot sikeresen modósitottam');
-            return redirect('/judgment/view/' . $id);
+            return redirect('/judgement/view/' . $id);
         }
 
         request()->session()->flash('error', 'Belső hiba történt');

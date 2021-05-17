@@ -8,6 +8,8 @@ use App\Models\Specialization;
 use App\Models\Specialist;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Table;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DemonstratorController extends Controller
@@ -26,15 +28,19 @@ class DemonstratorController extends Controller
             'specializations' => $specializations,
             'courses' => $courses,
             'specs' => $specs]);
-
     }
 
     public function view($id)
     {
+      $demonstrator = $this->findByID($id);
+      $specs = DB::select(DB::raw('SELECT s.`name` FROM
+	                                    specialist AS s
+                                        JOIN demonstrator AS d ON s.id_specialist = d.specs'));
 
-        $demonstrator = $this->findByID($id);
+        $specializations = Specialization::all();
+        $courses = Course::all();
 
-        return view('demonstrators.profile', ['demonstrator' => $demonstrator]);
+        return view('demonstrators.profile', ['demonstrator' => $demonstrator, 'specs' => $specs, 'specializations' => $specializations, '$courses' => $courses]);
     }
 
     public function insert(Request $request)
@@ -88,6 +94,5 @@ class DemonstratorController extends Controller
 
         return $demonstrator;
     }
-
 
 }

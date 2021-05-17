@@ -29,14 +29,14 @@
 
     @if($thesis->status == \App\Models\Theses::STATUS_PENDING)
         <div>
-            <form method="post" action="/judgment/approve/{{$thesis->id}}">
+            <form method="post" action="/judgement/approve/{{$thesis->id}}">
                 @csrf
                 <button class="btn btn-success" type="submit" onclick="return confirm('Tényleg elfogadja? ')">Elfogad</button>
             </form>
         </div>
 
         <div>
-            <form method="post" action="/judgment/deny/{{$thesis->id}}">
+            <form method="post" action="/judgement/deny/{{$thesis->id}}">
                 @csrf
                 <button class="btn btn-danger" type="submit" onclick="return confirm('Tényleg el utasítja?')">Elutasít</button>
             </form>
@@ -44,9 +44,11 @@
     @endif
     @if($thesis->status == \App\Models\Theses::STATUS_ACCEPTED || \App\Models\Theses::STATUS_DENIED == $thesis->status)
     <div>
-        <form method="post" action="/judgment/archive/{{$thesis->id}}">
+        <form method="post" action="/judgement/archive/{{$thesis->id}}">
             @csrf
+{{--            @if($thesis->status == \App\Models\Theses::STATUS_ARCHIVED)--}}
             <button class="btn btn-success" type="submit" onclick="return confirm('Tényleg arhíválja?  ')">Arhíválás</button>
+{{--            @endif--}}
         </form>
     </div>
     @endif

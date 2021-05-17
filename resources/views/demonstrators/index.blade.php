@@ -29,6 +29,7 @@
                             <a class="btn btn-primary" href="/demonstrators/view/{{$demonstrator->id}}" role="button">Részletek</a>
                         </td>
                     </tr>
+{{--                        @endforeach--}}
                 @endforeach
             </table>
 

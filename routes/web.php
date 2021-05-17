@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\JudgmentController;
+use App\Http\Controllers\JudgementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SiteController;
@@ -76,7 +76,8 @@ Route::get('/demonstrators/view/{id}', [DemonstratorController::class,'view'] );
 
 
 // Bírálat
-Route::get('/judgment', [JudgmentController::class, 'index']);
-Route::get('/judgment/view/{id}', [JudgmentController::class, 'view']);
-Route::post('/judgment/approve/{id}', [JudgmentController::class, 'approve']);
-Route::post('/judgment/deny/{id}', [JudgmentController::class, 'deny']);
+Route::get('/judgement', [JudgementController::class, 'index']);
+Route::get('/judgement/view/{id}', [JudgementController::class, 'view']);
+Route::post('/judgement/approve/{id}', [JudgementController::class, 'approve']);
+Route::post('/judgement/deny/{id}', [JudgementController::class, 'deny']);
+Route::post('/judgement/archive/{id}', [JudgementController::class, 'archive']);

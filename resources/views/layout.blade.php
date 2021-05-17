@@ -53,7 +53,7 @@
             @auth
                 @if(Auth::hasRole('department_leader'))
                 <li class="nav-item">
-                    <a class="nav-link" href="/judgment">Szakdolgozat Bírálás</a>
+                    <a class="nav-link" href="/judgement">Szakdolgozat Bírálás</a>
                 </li>
                 @endif
             @endauth
