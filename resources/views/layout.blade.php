@@ -34,24 +34,31 @@
                     </li>
                 @endif
             @endauth
+            @auth
                 <li class="nav-item">
                     <a class="nav-link" href="/theses">Szakdolgozatok</a>
                 </li>
+            @endauth
             @auth
                 <li class="nav-item">
                     <a class="nav-link" href="/courses">Kurzusok</a>
                 </li>
             @endauth
-
-            <li class="nav-item">
-                <a class="nav-link" href="/classrooms">Osztálytermek</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/demonstrators">Demonstrátor jelentkezés</a>
-             </li>
             @auth
-                @if(Auth::hasRole('department_leader'))
+                <li class="nav-item">
+                    <a class="nav-link" href="/classrooms">Osztálytermek</a>
+                </li>
+            @endauth
+            @auth
+                @if(!Auth::hasRole('teacher') || !Auth::hasRole('department_leader'))
+                    <li class="nav-item">
+                         <a class="nav-link" href="/demonstrators">Demonstrátor jelentkezés</a>
+                    </li>
+                @endif
+            @endauth
+
+            @auth
+                @if(Auth::hasRole('department_leader') || Auth::hasRole('admin'))
                 <li class="nav-item">
                     <a class="nav-link" href="/judgement">Szakdolgozat Bírálás</a>
                 </li>

@@ -7,7 +7,9 @@ use App\Models\Demonstrator;
 use App\Models\Specialization;
 use App\Models\Specialist;
 use App\Models\Course;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Table;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -32,12 +34,20 @@ class DemonstratorController extends Controller
 
     public function view($id)
     {
-      $demonstrator = $this->findByID($id);
-      $specs = DB::select(DB::raw('SELECT s.`name` FROM
+        if (Auth::hasRole('student')) {
+            throw new AuthorizationException('Nincs jogosultságod ezt a funkciót használni!');
+        }
+
+       $demonstrator = $this->findByID($id);
+
+       $specs = DB::select(DB::raw('SELECT DISTINCT(s.`id_specialist`), s.`name` FROM
 	                                    specialist AS s
                                         JOIN demonstrator AS d ON s.id_specialist = d.specs'));
 
-        $specializations = Specialization::all();
+        $specializations =  DB::select(DB::raw('SELECT DISTINCT(s.`id_specialization`), s.`name` FROM
+	                                    specialization AS s
+                                        JOIN demonstrator AS d ON s.id_specialization = d.specialization'));
+
         $courses = Course::all();
 
         return view('demonstrators.profile', ['demonstrator' => $demonstrator, 'specs' => $specs, 'specializations' => $specializations, '$courses' => $courses]);

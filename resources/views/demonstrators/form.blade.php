@@ -2,7 +2,7 @@
     @csrf
 
     <div class="form-group">
-        <label for="user">Név: </label>
+        <label for="user">Demonstátor email címe: </label>
         <input class="form-control" type="text" name="user" id="user"  value="{{$demonstrator->user}}">
     </div>
 

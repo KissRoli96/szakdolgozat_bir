@@ -3,37 +3,37 @@
 
     <div class="form-group">
         <label for="neptun_id">Neptun Azonosító: </label>
-        <input type="text" name="neptun_id"  value="{{$course->neptun_id}}">
+        <input class="form-control"  type="text" name="neptun_id"  value="{{$course->neptun_id}}">
     </div>
 
     <div class="form-group">
         <label for="unique_name">Egyedi Kurzus Név: </label>
-        <input type="text" name="unique_name" value="{{$course->unique_name}}">
+        <input class="form-control"  type="text" name="unique_name" value="{{$course->unique_name}}">
     </div>
 
     <div class="form-group">
         <label for="full_name">Kurzus Név:</label>
-        <input type="text" name="full_name" value="{{$course->full_name}}">
+        <input class="form-control"  type="text" name="full_name" value="{{$course->full_name}}">
     </div>
 
     <div class="form-group">
         <label for="type">Kurzus Tipusa:</label>
-        <input type="text" name="type" id="type" value="{{$course->type}}" maxlength="5">
+        <input class="form-control"  type="text" name="type" id="type" value="{{$course->type}}" maxlength="5">
     </div>
 
     <div class="form-group">
         <label for="school">Iskola:</label>
-        <input type="text" name="school" id="school" value="{{$course->school}}" maxlength="1">
+        <input class="form-control"  type="text" name="school" id="school" value="{{$course->school}}" maxlength="1">
     </div>
 
     <div class="form-group">
         <label for="hour">Óra:</label>
-        <input type="number" name="hour" id="hour" value="{{$course->hour}}">
+        <input class="form-control"  type="number" name="hour" id="hour" value="{{$course->hour}}">
     </div>
 
     <div class="form-group">
         <label for="default_headcount">Alap létszám:</label>
-        <input type="number" name="default_headcount" id="default_headcount" value="{{$course->default_headcount}}">
+        <input class="form-control"  type="number" name="default_headcount" id="default_headcount" value="{{$course->default_headcount}}">
     </div>
 
     <div class="form-group">

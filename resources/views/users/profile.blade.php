@@ -10,12 +10,14 @@
                     <th scope="col">Felhasználó</th>
                     <th scope="col">Email</th>
                     <th scope="col">Regisztráció dátuma</th>
+                    <th scope="col">Utolsó Módosítás</th>
                 </tr>
                 </thead>
                 <tr>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->registration_date}}</td>
+                    <td>{{$user->last_update}}</td>
                 </tr>
             </table>
         </div>

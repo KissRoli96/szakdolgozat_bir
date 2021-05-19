@@ -3,9 +3,15 @@
 @section('content')
 
 
-    <h1>Roli szakdogája</h1>
+    <h1>BIR rendszer</h1>
     <p>
-        Ez a szakdogám
+        Laravel keretrendszerrel való megvalósítás
+    </p>
+    <p>
+        Jelentkezz be , hogy elérd a funkciókat ! <br>
+        Ezt a <strong>
+            belépés gombbal
+        </strong> teheted meg a jobb felső sarokban!
     </p>
 
 @endsection

@@ -1,11 +1,17 @@
 <form method="POST" >
     @csrf
 
+
+    <div class="form-group">
     <label>email:</label>
-    <input type="email" name="email" value="{{$user->email}}">
+    <input class="form-control" type="email" name="email" value="{{$user->email}}">
+    </div>
 
-    <label>name:</label>
-    <input type="text" name="name" value="{{$user->name}}">
+    <div class="form-group">
+        <label>name:</label>
+        <input class="form-control" type="text" name="name" value="{{$user->name}}">
+    </div>
 
-    <button type="submit">Mentés</button>
+
+    <button type="submit" class="btn btn-success" >Mentés</button>
 </form>

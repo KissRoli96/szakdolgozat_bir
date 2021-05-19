@@ -60,7 +60,7 @@ class ThesesController extends Controller
     public function insert(Request $request)
     {
         if (Auth::hasRole('student')) {
-            throw new AuthorizationException('Diák vagy ne tedd ezt rossz úton jársz!');
+            throw new AuthorizationException('Nincs jogosultságod ezt a funkciót használni!');
         }
 
         $thesis = new Theses();

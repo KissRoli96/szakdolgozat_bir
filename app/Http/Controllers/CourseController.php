@@ -31,8 +31,8 @@ class CourseController extends Controller
 
     public function insert(Request $request)
     {
-        if (Auth::hasRole('student')) {
-            throw new AuthorizationException("kicsi a pöcsöd");
+        if (Auth::hasRole('student') or Auth::hasRole('teacher') ) {
+            throw new AuthorizationException("Nincs jogosultságot erre , csak tanszékvezető képes új kurzusokat létrehozni !");
         }
         $course = new Course();
 

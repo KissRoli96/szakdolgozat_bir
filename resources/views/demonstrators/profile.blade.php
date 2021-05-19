@@ -25,13 +25,26 @@
 
                     <td>{{$demonstrator->user}}</td>
                     @foreach($specs as $spec)
+                        @if($spec->id_specialist == $demonstrator->specs)
                     <td>{{$spec->name}}</td>
+                        @endif
                     @endforeach
-{{--                    <td>{{$thesis->task_name}}</td>--}}
-{{--                    <td>{{$thesis->task_name_en}}</td>--}}
-{{--                    <td>{{$thesis->task_description}}</td>--}}
-{{--                    <td>{{$thesis->supervisor}}</td>--}}
-{{--                    <td>{{$thesis->headcount}}</td>--}}
+                    @foreach($specializations as $special)
+                        @if($special->id_specialization ==  $demonstrator->specialization )
+                                    <td>{{$special->name}}</td>
+                        @endif
+                    @endforeach
+                    <td>{{$demonstrator->courses}}</td>
+                    <td>{{$demonstrator->semester}}</td>
+                    <td>{{$demonstrator->grades}}</td>
+                    <td>{{$demonstrator->min}}</td>
+                    <td>{{$demonstrator->max}}</td>
+                    @if($demonstrator->corr == true)
+                        <td>Igen vállalt</td>
+                    @else
+                        <td>Nem vállalt</td>
+                    @endif
+                    <td>{{$demonstrator->comment}}</td>
                 </tr>
                 </tbody>
             </table>

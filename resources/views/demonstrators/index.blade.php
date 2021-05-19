@@ -15,7 +15,7 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Demonstrátor neve</th>
+                    <th scope="col">Demonstrátor email címe</th>
                     <th scope="col">Adatai</th>
                     <th scope="col"></th>
                 </tr>
@@ -25,6 +25,7 @@
                         <td>
                             {{$demonstrator->user}}
                         </td>
+
                         <td>
                             <a class="btn btn-primary" href="/demonstrators/view/{{$demonstrator->id}}" role="button">Részletek</a>
                         </td>

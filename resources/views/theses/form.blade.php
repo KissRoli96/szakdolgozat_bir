@@ -3,28 +3,28 @@
 
     <div class="form-group">
             <label>Tanár:</label>
-            <input type="text" name="user" value="{{$thesis->user}}">
+            <input class="form-control" type="text" name="user" value="{{$thesis->user}}">
     </div>
 
     <br>
 
     <div class="form-group">
         <label for="department" >Tanszék: </label>
-        <input type="text" name="department" value="{{$thesis->department}}">
+        <input class="form-control"  type="text" name="department" value="{{$thesis->department}}">
     </div>
 
     <br>
 
     <div class="form-group">
         <label for="task_name" >Szakdolgozat neve: </label>
-        <input type="text" name="task_name" value="{{$thesis->task_name}}">
+        <input class="form-control"  type="text" name="task_name" value="{{$thesis->task_name}}">
     </div>
 
     <br>
 
     <div class="form-group">
         <label for="task_name_en" >Szakdolgozat neve ENG:  </label>
-        <input type="text" name="task_name_en" value="{{$thesis->task_name_en}}">
+        <input class="form-control"  type="text" name="task_name_en" value="{{$thesis->task_name_en}}">
     </div>
 
     <br>
@@ -32,7 +32,7 @@
 
     <div class="form-group">
         <label for="headcount" >Létszám</label>
-        <input type="number" name="headcount" value="{{$thesis->headcount}}">
+        <input class="form-control"  type="number" name="headcount" value="{{$thesis->headcount}}">
     </div>
 
     <div class="form-group">
