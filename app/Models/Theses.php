@@ -44,6 +44,7 @@ class Theses extends Model
     const STATUS_ACCEPTED = 1;
     const STATUS_DENIED = 2;
     const STATUS_ARCHIVED = 3;
+    const STATUS_TEST = NULL;
 
     public static function getStatusList()
     {
@@ -52,6 +53,7 @@ class Theses extends Model
             self::STATUS_ACCEPTED => 'Elfogadott',
             self::STATUS_DENIED => 'Elutasított',
             self::STATUS_ARCHIVED => 'Arhív',
+            self::STATUS_TEST => 'Teszt',
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Theses;
 use App\Models\Departments;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -65,6 +66,10 @@ class ThesesController extends Controller
 
         $thesis = new Theses();
 
+        $departments = Departments::all();
+
+        $courses = Course::all();
+
         if ($request->post() && $request->has('_token')) {
             $request->validate([
                 'user' => 'required',
@@ -73,6 +78,9 @@ class ThesesController extends Controller
                 'task_name_en' => 'required',
                 'headcount' => 'required',
                 'task_description' => 'required',
+                'type' => 'required',
+                'day' => 'required',
+                'corr' => 'required',
             ]);
 
             $thesis->fill($request->all());
@@ -84,12 +92,14 @@ class ThesesController extends Controller
                 $request->session()->flash('error', 'Belső hiba történt');
         }
 
-        return view('theses.create', ['thesis' => $thesis]);
+        return view('theses.create', ['thesis' => $thesis,'departments' => $departments, 'courses' => $courses]);
     }
 
     public function update($id)
     {
         $thesis = $this->findById($id);
+
+        $departments = Departments::all();
 
         if (request()->post() && request()->has('_token')) {
 
@@ -100,6 +110,7 @@ class ThesesController extends Controller
                 'task_name_en' => 'required',
                 'headcount' => 'required',
                 'task_description' => 'required',
+                'type' => 'required',
             ]);
 
             $thesis->fill(request()->all());
@@ -113,7 +124,7 @@ class ThesesController extends Controller
         }
 
 
-        return view('theses.update', ['thesis' => $thesis]);
+        return view('theses.update', ['thesis' => $thesis, 'departments' => $departments]);
 
     }
 
