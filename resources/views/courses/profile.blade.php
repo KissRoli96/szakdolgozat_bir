@@ -33,7 +33,7 @@
                 </tr>
             </tbody>
         </table>
-
+        @if(!Auth::hasRole('student') || !Auth::hasRole('teacher'))
         <div class="row">
             <div class="col-2">
                 <a class="btn btn-info" href="/courses/update/{{$course->course_id}}">Modositás</a>
@@ -44,6 +44,7 @@
                     <button class="btn btn-danger" type="submit" onclick="return confirm('Tényleg törölni szeretné?')">Törlés</button>
                 </form>
             </div>
+        @endif
             <div class="col-1">
                 <a class="btn btn-primary" href="/courses/" role="button">Vissza</a>
             </div>

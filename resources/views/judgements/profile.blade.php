@@ -1,6 +1,8 @@
 @extends('layout')
 
 @section('content')
+    <h2>Szakdolgozat Részletei</h2>
+
     <div class="row">
         <div class="col-9">
             <h3>Szakdolgozat Címe</h3>
@@ -22,23 +24,42 @@
                 Feladat leírása
             </h3>
             <p>
-                    {{$thesis->task_description}}
+                {{$thesis->task_description}}
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h3>
+                Feladat leírása angolul
+            </h3>
+            <p>
+                @if(empty($thesis->task_description_en))
+                    Nincs angol leírása
+                @else
+                    {{$thesis->task_description_en}}
+                @endif
             </p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-6">
-        <h3>Meghirdető</h3>
+            <h3>Meghirdető</h3>
             <p>
                 {{$thesis->user}}
             </p>
-        </div>
 
+            <h3>Felügyelő</h3>
+            <p>
+                {{$thesis->supervisor}}
+            </p>
+        </div>
         <div class="col-6">
-        <h3>Kiknek</h3>
+            <h3>Kiknek</h3>
             @if($thesis->mi == true)
-            <p>Mérnökinformatikus</p>
+                <p>Mérnökinformatikus</p>
             @endif
             @if($thesis->pti == true)
                 <p>Programtervezőinformatikus</p>
@@ -53,15 +74,46 @@
             @if($thesis->it == true)
                 <p>Info Tanári</p>
             @endif
+
+            <h3>Feladat tipusa </h3>
+            @if($thesis->type == "S")
+                <p>Szakdolgozat</p>
+            @elseif($thesis->type == "D")
+                <p>Diplomamunka</p>
+            @endif
         </div>
+        <div class="row">
+            <div class="col-6">
+                <h3>Nappalis</h3>
+                @if($thesis->day = 1)
+                    <td>Igen</td>
+                @elseif($thesis->day = NULL)
+                    <td>Nem</td>
+                @endif
+            </div>
+
+            <div class="col-6">
+                <h3>Levelezős</h3>
+                @if($thesis->corr = 1)
+                    <td>Igen</td>
+                @elseif($thesis->corr = NULL)
+                    <td>Nem</td>
+                @endif
+            </div>
+        </div>
+
     </div>
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-sm">
             <h4>Előismeret</h4>
-            {{$thesis->preschool}}
+            @if(empty($thesis->preschool))
+                <p>Nem szükséges</p>
+            @else
+                {{$thesis->preschool}}
+            @endif
         </div>
-        <div class="col-6">
+        <div class="col-sm">
             <h4>Irodalom</h4>
             {{$thesis->knowledge}}
         </div>
