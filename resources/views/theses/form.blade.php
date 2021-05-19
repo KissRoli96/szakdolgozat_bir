@@ -123,13 +123,18 @@
     </div>
 
     <div class="form-group">
-        <label for="department">Előismeret</label>
-        <select class="form-control" id="department" name="department">
+        <label for="preschool">Előismeret</label>
+        <select class="form-control" id="preschool" name="preschool">
             <option value="">Kérjük válasszon előismeretet!</option>
             @foreach($courses as $course)
                 <option value="{{$course->unique_name}}">{{$course->full_name}}</option>
             @endforeach
         </select>
+    </div>
+
+    <div class="form-group">
+        <label>Irodalom:</label>
+        <input class="form-control" type="text" name="knowledge" id="knowledge" value="{{$thesis->knowledge}}">
     </div>
 
 

@@ -101,6 +101,8 @@ class ThesesController extends Controller
 
         $departments = Departments::all();
 
+        $courses = Course::all();
+
         if (request()->post() && request()->has('_token')) {
 
             request()->validate([
@@ -124,7 +126,7 @@ class ThesesController extends Controller
         }
 
 
-        return view('theses.update', ['thesis' => $thesis, 'departments' => $departments]);
+        return view('theses.update', ['thesis' => $thesis, 'departments' => $departments, 'courses' => $courses]);
 
     }
 
