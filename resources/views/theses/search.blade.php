@@ -8,6 +8,7 @@
             <th scope="col">Tanár neve</th>
             <th scope="col">Tanszék</th>
             <th scope="col">Szakdolgozat neve</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         @forelse($result as $thesis)
@@ -21,6 +22,9 @@
                     </td>
                     <td>
                         {{$thesis->task_name}}
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="/theses/view/{{$thesis->id}}" role="button">Részletek</a>
                     </td>
                 </tr>
         </tbody>

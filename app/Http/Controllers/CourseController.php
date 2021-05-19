@@ -71,12 +71,46 @@ class CourseController extends Controller
     public function update($id)
     {
 
+        $course = $this->findByid($id);
+
+        $departments = Departments::all();
+
+        if (request()->post() && request()->has('_token')) {
+
+            request()->validate([
+                'neptun_id' => 'required',
+                'unique_name' => 'required',
+                'full_name' => 'required',
+                'type' => 'required',
+                'school' => 'required',
+                'hour' => 'required',
+                'default_headcount' => 'required',
+                'department' => 'required',
+            ]);
+
+            $course->fill(request()->all());
+            if ($course->save()) {
+                request()->session()->flash('success', 'A kurzust sikeresen mentettem');
+
+                return redirect("/courses/view/{$id}");
+
+            }
+                request()->session()->flash('error', 'Belső hiba történt');
+        }
+        return view('courses.update',['course' => $course, 'departments' => $departments]);
     }
+
 
 
     public function delete($id)
     {
-
+        $course = $this->findByid($id);
+        if ($course->delete()) {
+            request()->session()->flash('success', 'A kurzust sikeresen töröltem');
+            return redirect('courses');
+        }
+        request()->session()->flash('error', 'Belső hiba történt');
+        return back();
     }
 
     private function findByid($id)

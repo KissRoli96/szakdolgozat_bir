@@ -10,7 +10,7 @@
             <a class="btn btn-info" href="/user/insert">Új felhasználó létrehozása</a>
 
             <hr>
-
+            @auth
             <table class="table table-striped">
                 <thead class="thead-dark">
                         <tr>
@@ -31,5 +31,5 @@
             </table>
         </div>
     </div>
-
+    @endauth
 @endsection

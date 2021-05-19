@@ -28,12 +28,13 @@
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             @auth
-                @if(!Auth::hasRole('student'))
+                @if(Auth::hasRole('admin'))
                     <li class="nav-item">
                         <a class="nav-link" href="/user">Felhasználók</a>
                     </li>
                 @endif
             @endauth
+
             @auth
                 <li class="nav-item">
                     <a class="nav-link" href="/theses">Szakdolgozatok</a>
@@ -50,7 +51,7 @@
                 </li>
             @endauth
             @auth
-                @if(!Auth::hasRole('teacher') || !Auth::hasRole('department_leader'))
+                @if(Auth::hasRole('student'))
                     <li class="nav-item">
                          <a class="nav-link" href="/demonstrators">Demonstrátor jelentkezés</a>
                     </li>

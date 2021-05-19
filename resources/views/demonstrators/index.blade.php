@@ -12,6 +12,7 @@
             </div>
 
             <hr>
+                @if(Auth::hasRole('department_leader') || Auth::hasRole('admin') || Auth::hasrole('teacher'))
             <table class="table table-striped">
                 <thead class="thead-dark">
                 <tr>
@@ -33,7 +34,7 @@
 {{--                        @endforeach--}}
                 @endforeach
             </table>
-
+                @endif
         </div>
 
     </div>

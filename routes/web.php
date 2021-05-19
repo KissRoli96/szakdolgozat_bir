@@ -60,6 +60,8 @@ Route::get('/courses', [CourseController::class, 'index']);
 Route::get('/courses/view/{id}', [CourseController::class, 'view']);
 Route::get('/courses/insert',[CourseController::class, 'insert']);
 Route::post('/courses/insert',[CourseController::class, 'insert']);
+Route::get('/courses/update/{id}',[CourseController::class,'update']);
+Route::post('/courses/delete/{id}',[CourseController::class,'delete']);
 
 
 // Osztalytermek

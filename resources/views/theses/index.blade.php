@@ -8,12 +8,14 @@
                 Szakdolgozatok
             </h1>
             @auth
+                @if(!Auth::hasRole('student'))
             <a class="btn btn-info" href="/theses/insert">Új szakdolgozat felvétele</a>
+                @endif
             @endauth
             <hr>
 
             <form action="/theses/search" class="form-inline my-2 my-lg-0">
-                <input name="name" class="form-control mr-sm-2" type="search" placeholder="tanterem.."  aria-label="Search">
+                <input name="name" class="form-control mr-sm-2" type="search" placeholder="Szakdolgozat..."  aria-label="Search">
 
                 <div class="form-group">
                     <label for="department">Tanszék</label>

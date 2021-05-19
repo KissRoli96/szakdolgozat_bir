@@ -55,6 +55,10 @@ class DemonstratorController extends Controller
 
     public function insert(Request $request)
     {
+        if (Auth::hasRole('teacher') || Auth::hasRole('department_leader') ) {
+            throw new AuthorizationException('Nincs jogosultságod ezt a funkciót használni!');
+        }
+
         $demonstrator = new Demonstrator();
 
         $specs = Specialist::all();

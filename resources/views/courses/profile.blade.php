@@ -34,10 +34,20 @@
             </tbody>
         </table>
 
-        <div>
-            <a class="btn btn-primary" href="/courses/" role="button">Vissza</a>
+        <div class="row">
+            <div class="col-2">
+                <a class="btn btn-info" href="/courses/update/{{$course->course_id}}">Modositás</a>
+            </div>
+            <div class="col-9">
+                <form method="post" action="/courses/delete/{{$course->course_id}}">
+                    @csrf
+                    <button class="btn btn-danger" type="submit" onclick="return confirm('Tényleg törölni szeretné?')">Törlés</button>
+                </form>
+            </div>
+            <div class="col-1">
+                <a class="btn btn-primary" href="/courses/" role="button">Vissza</a>
+            </div>
         </div>
     </div>
-</div>
 
 @endsection
