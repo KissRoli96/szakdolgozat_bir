@@ -139,7 +139,7 @@
         <form method="post" action="/judgement/archive/{{$thesis->id}}">
             @csrf
 {{--            @if($thesis->status == \App\Models\Theses::STATUS_ARCHIVED)--}}
-            <button class="btn btn-success" type="submit" onclick="return confirm('Tényleg arhíválja?  ')">Arhíválás</button>
+            <button class="btn btn-success" type="submit" onclick="return confirm('Tényleg arhíválja?  ')">Archiválás</button>
 {{--            @endif--}}
         </form>
     </div>

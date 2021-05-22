@@ -1,7 +1,5 @@
 <form method="POST" >
     @csrf
-
-
     <div class="form-group">
     <label>email:</label>
     <input class="form-control" type="email" name="email" value="{{$user->email}}">

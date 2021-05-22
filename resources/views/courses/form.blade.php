@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-group">
-        <label for="school">Iskola:</label>
+        <label for="school">Nappalis/Levelezős:</label>
         <input class="form-control"  type="text" name="school" id="school" value="{{$course->school}}" maxlength="1">
     </div>
 

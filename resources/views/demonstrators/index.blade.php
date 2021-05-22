@@ -7,10 +7,11 @@
             <h1>
                 Demonstrátorok
             </h1>
+            @if(Auth::hasRole('student') )
             <div>
                 <a class="btn btn-info" href="/demonstrators/insert">Demonstrátor jelentkezés</a>
             </div>
-
+            @endif
             <hr>
                 @if(Auth::hasRole('department_leader') || Auth::hasRole('admin') || Auth::hasrole('teacher'))
             <table class="table table-striped">

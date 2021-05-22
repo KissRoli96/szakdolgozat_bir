@@ -70,6 +70,9 @@ class CourseController extends Controller
 
     public function update($id)
     {
+        if (Auth::hasRole('student') or Auth::hasRole('teacher') ) {
+            throw new AuthorizationException("Nincs jogosultságot erre , csak tanszékvezető képes új kurzusokat létrehozni !");
+        }
 
         $course = $this->findByid($id);
 
@@ -104,6 +107,10 @@ class CourseController extends Controller
 
     public function delete($id)
     {
+        if (Auth::hasRole('student') or Auth::hasRole('teacher') ) {
+            throw new AuthorizationException("Nincs jogosultságot erre , csak tanszékvezető képes új kurzusokat létrehozni !");
+        }
+
         $course = $this->findByid($id);
         if ($course->delete()) {
             request()->session()->flash('success', 'A kurzust sikeresen töröltem');

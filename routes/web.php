@@ -28,11 +28,6 @@ Route::get('/about', function () {
    return view('users.about');
 });
 
-Route::get('/signup', [SiteController::class, 'signup']);
-Route::post('/signup', [SiteController::class, 'signup']);
-//
-//Route::get('/login', [SiteController::class, 'login']);
-//Route::post('/login', [SiteController::class, 'login']);
 
 // userek CRUD
 Route::get('/user', [UserController::class,'index'] );

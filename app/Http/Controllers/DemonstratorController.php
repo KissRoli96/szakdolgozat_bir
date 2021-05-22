@@ -11,7 +11,6 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use mysql_xdevapi\Table;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DemonstratorController extends Controller

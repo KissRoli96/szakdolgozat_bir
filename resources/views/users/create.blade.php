@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>User létrehozása</h1>
+    <h1>Felhasználó létrehozása</h1>
 
     @include('users.form')
 

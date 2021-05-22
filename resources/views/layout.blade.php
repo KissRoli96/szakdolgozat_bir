@@ -51,11 +51,17 @@
                 </li>
             @endauth
             @auth
-                @if(Auth::hasRole('student'))
+
                     <li class="nav-item">
-                         <a class="nav-link" href="/demonstrators">Demonstrátor jelentkezés</a>
+                         <a class="nav-link" href="/demonstrators">
+                             @if(Auth::hasRole('student'))
+                             Demonstrátor jelentkezés
+                             @endif
+                             @if(Auth::hasRole('department_leader') || Auth::hasRole('admin') || Auth::hasRole('teacher') )
+                                 Jelentkezett Demonstrátorok
+                             @endif
+                         </a>
                     </li>
-                @endif
             @endauth
 
             @auth

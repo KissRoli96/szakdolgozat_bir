@@ -52,7 +52,7 @@ class Theses extends Model
             self::STATUS_PENDING => 'Döntés folyamatban',
             self::STATUS_ACCEPTED => 'Elfogadott',
             self::STATUS_DENIED => 'Elutasított',
-            self::STATUS_ARCHIVED => 'Arhív',
+            self::STATUS_ARCHIVED => 'Archív',
             self::STATUS_TEST => 'Teszt',
         ];
     }

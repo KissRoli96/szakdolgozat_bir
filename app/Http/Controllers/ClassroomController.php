@@ -24,7 +24,7 @@ class ClassroomController extends Controller
     {
         $name = request()->get('name');
         if (!empty($name)) {
-            $result = $this->findbyName($name);
+            $result = $this->findByName($name);
 
             return view("/classrooms/search", [
                 'name' => $name,
@@ -49,7 +49,7 @@ class ClassroomController extends Controller
         return $classroom;
     }
 
-    protected function findbyName($name)
+    protected function findByName($name)
     {
          $classrooms = Classrooms::query()
          ->where('full_name', 'LIKE', "%$name%")
